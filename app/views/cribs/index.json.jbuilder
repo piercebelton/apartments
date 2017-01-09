@@ -1,0 +1,1 @@
+json.array! @cribs, partial: 'cribs/crib', as: :crib

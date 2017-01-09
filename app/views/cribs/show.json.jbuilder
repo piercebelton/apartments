@@ -1,0 +1,1 @@
+json.partial! "cribs/crib", crib: @crib

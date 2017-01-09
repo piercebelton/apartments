@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @crib.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @crib.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @crib.zip %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @crib.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @crib.country %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @crib.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @crib.phone %>
+</p>
+
+<p>
+  <strong>Contact hours:</strong>
+  <%= @crib.contact_hours %>
+</p>
+
+<%= link_to 'Edit', edit_crib_path(@crib) %> |
+<%= link_to 'Back', cribs_path %>
