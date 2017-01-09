@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :cribs
+  resources :cribs do
+    get 'map_location'
+  end
+
+  root 'cribs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
