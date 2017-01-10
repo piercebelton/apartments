@@ -9,10 +9,12 @@ function placeMakers(dataFromServer, markers) {
 }
 
 function showLocations(dataFromServer) {
+
   if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
+        alert(position);
       // Add our position to the collection of markers
-      data[data.length] = {
+      dataFromServer[dataFromServer.length] = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
         infowindow: "You!"
@@ -26,18 +28,17 @@ function showLocations(dataFromServer) {
 }
 
 function createGmap(dataFromServer) {
+
   handler = Gmaps.build('Google');
   handler.buildMap({
       provider: {},
       internal: {id: 'crib_map'}
     },
-    // function() {
-    //   markers = handler.addMarkers(dataFromServer);
-    //   handler.bounds.extendWith(markers);
-    //   handler.fitMapToBounds();
-    // }
     function() {
       showLocations(dataFromServer);
+      markers = handler.addMarkers(dataFromServer);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
     }
   );
 };
@@ -49,6 +50,7 @@ function createGmaps(dataFromServer) {
       internal: {id: 'cribs_map'}
     },
     function() {
+      showLocations(dataFromServer);
       markers = handler.addMarkers(dataFromServer);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
