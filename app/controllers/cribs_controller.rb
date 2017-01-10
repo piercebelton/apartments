@@ -22,6 +22,16 @@ class CribsController < ApplicationController
     render json: @hash.to_json
   end
 
+  def map_locations
+    @cribs = Crib.all
+    @hash = Gmaps4rails.build_markers(@cribs) do |crib, marker|
+      marker.lat(crib.latitude)
+      marker.lng(crib.longitude)
+      # marker.title crib.title
+    end
+    render json: @hash.to_json
+  end
+
   # GET /cribs/new
   def new
     @crib = Crib.new

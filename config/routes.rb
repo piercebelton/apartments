@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :cribs do
     get 'map_location'
+    get :map_locations, on: :collection
   end
 
   root 'cribs#index'

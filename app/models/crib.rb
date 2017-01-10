@@ -3,6 +3,7 @@ class Crib < ActiveRecord::Base
   after_validation :geocode
 
   def full_address
-    "#{self.street} #{self.city} #{self.state} #{self.zip}"
+    street.to_s + ', ' + city.to_s + ', ' + state.to_s + ', ' + zip.to_s
+    # "#{self.street} #{self.city} #{self.state} #{self.zip}"
   end
 end
